@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.head-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.head-container p, thead tr td {
+    font-weight: bold;
+}
+
+.add-task {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(123, 211, 85);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-task:hover {
+    background-color: rgb(123, 250, 85);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+thead {
+    background-color: rgb(217, 217, 217);
+}
+
+thead th {
+    text-align: center;
+}
+
+thead tr th:first-child{
+    border-radius: 20px 0 0 20px;
+}
+
+thead tr th:last-child{
+    border-radius: 0 20px 20px 0;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.blur-container {
+    position: absolute;
+    inset: 0;
+    background-color: #00000050;
+    display: none;
+}
+
+.modal-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+#taskForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-form label {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.top-form input {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: 18px;
+}
+
+.bottom-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.bottom-form input, .bottom-form .btnCancel {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.bottom-form input[value='Save'] {
+    background-color: rgb(0, 191, 99);
+    transition: background-color 0.3s;
+}
+
+.bottom-form input[value='Save']:hover {
+    background-color: rgb(0, 220, 99);
+}
+
+.btnCancel {
+    background-color: rgb(255, 87, 87);
+    transition: background-color 0.3s;
+}
+
+.btnCancel:hover {
+    background-color: rgb(243, 52, 52);
+}
+
+.action {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btnEdit {
+    background-color: rgb(56, 182, 255);
+}
+
+.btnEdit:hover{
+    background-color: rgb(36, 166, 241);
+}
+
+.btnDelete {
+    background-color: rgb(255, 87, 87);
+}
+
+.btnDelete:hover {
+    background-color: rgb(241, 56, 56);
+}
+
