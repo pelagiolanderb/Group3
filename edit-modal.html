@@ -1,0 +1,18 @@
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <!-- Close button for the modal -->
+        <span class="close">&times;</span>
+        <h2>Edit Task</h2>
+        <!-- Edit task form -->
+        <form action="updatetask.php" method="POST" id="edit">
+            <input type="hidden" name="task-id" id="edit-task-id">
+            <label for="edit-task-name">Task Name:</label>
+            <input type="text" placeholder="Enter your task here..." name="edit-task-name" id="edit-task-name" class="input" required />
+            <br />
+            <label for="edit-task-deadline">Task Deadline:</label>
+            <input type="date" name="edit-task-deadline" id="edit-task-deadline" class="input" required />
+            <br />
+            <button type="submit" id="edit-submit">Update</button>
+        </form>
+    </div>
+</div>
