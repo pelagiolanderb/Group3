@@ -11,59 +11,49 @@ $(document).ready(function () {
         $(".modal").css("display", "none");
     });
 
-    // Define the form submit function
-    $("#add").submit(function (event) {
+    // Delegate form submission event to a static parent element
+    $(document).on('submit', '#add', function (event) {
         // Prevent the form from submitting normally
         event.preventDefault();
+
+        // Get the form data
+        var taskName = $("#task-name").val();
+        var taskDeadline = $("#task-deadline").val();
 
         // Send a POST request to the server to add a new task
         $.ajax({
             type: "POST",
             url: "addtask.php",
-            data: $(this).serialize(), // Get the form data
+            data: {
+                'task-name': taskName,
+                'task-deadline': taskDeadline
+            },
             success: function (response) {
-                // Display an alert message and hide the modal when the task is successfully added
+                // Parse the JSON response
+                var task = JSON.parse(response);
+
+                // Create a new row for the task
+                var row = '<tr>' +
+                    '<td>' + task.dateCreated + '</td>' +
+                    '<td>' + task.taskName + '</td>' +
+                    '<td>' + task.taskDeadline + '</td>' +
+                    '<td>' + task.status + '</td>' +
+                    '<td><button class="edit-button" data-task-id="' + task.id + '">Edit</button>' +
+                    '<button class="delete-button" data-task-id="' + task.id + '">Delete</button></td>' +
+                    '</tr>';
+
+                // Append the new row to the table
+                $(".task-display").append(row);
+
+                // Display an alert message and hide the modal
                 alert("Successfully Added a task!");
                 $(".modal").css("display", "none");
-                // Call the displayTasks() function to update the task list
-                displayTasks();
-            },
-        });
 
-        // Reset the form
-        $(this)[0].reset();
-    });
-
-    // Function to fetch tasks from the server and populate the table
-    function displayTasks() {
-        // Send an AJAX request to fetch tasks
-        $.ajax({
-            url: 'displaytask.php',
-            type: 'GET',
-            success: function(response) {
-                // Parse the JSON response
-                var tasks = JSON.parse(response);
-                var tableBody = $('.task-display');
-                
-                // Clear existing table rows
-                tableBody.empty();
-                
-                // Iterate through tasks and populate the table
-                tasks.forEach(function(task) {
-                    var currentDate = new Date().toISOString().slice(0, 10); // Get the current date
-                    var row = '<tr>' +
-                                '<td>' + currentDate + '</td>' + // Display the current date
-                                '<td>' + task.taskName + '</td>' +
-                                '<td>' + task.taskDeadline + '</td>' +
-                                '<td>' + task.status + '</td>' +
-                                '<td><button class="edit-button" data-task-id="' + task.id + '">Edit</button> ' +
-                                '<button class="delete-button" data-task-id="' + task.id + '">Delete</button></td>' +
-                            '</tr>';
-                    tableBody.append(row);
-                });
+                // Reset the form
+                $("#add")[0].reset();
             }
         });
-    }
+    });
 
     // Call the displayTasks function when the document is ready
     displayTasks();
