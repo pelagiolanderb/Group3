@@ -1,0 +1,134 @@
+/* Reset margin, padding, and box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Center the wrapper container */
+.wrapper {
+    width: 80%; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+/* Style the add task button */
+.add-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(123, 211, 85);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 1400px;
+}
+
+/* Change the background color of the add task button on hover */
+.add-button:hover {
+    background-color: rgb(123, 250, 85);
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style the table header */
+th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style the table cells */
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Add alternating row background colors */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray color for even rows */
+}
+
+/* Style the date column */
+td:nth-child(1) {
+    width: 20%;
+}
+
+/* Style the task name column */
+td:nth-child(2) {
+    width: 25%;
+}
+
+/* Style the task deadline column */
+td:nth-child(3) {
+    width: 20%;
+}
+
+/* Style the status column */
+td:nth-child(4) {
+    width: 15%;
+}
+
+/* Style the action column */
+td:nth-child(5) {
+    width: 20%;
+}
+
+/* Style the modal */
+.modal {
+    display: none; /* Ensure the modal is initially hidden */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+/* Style the modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* Style the submit button */
+#submit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(123, 211, 85);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Change the background color of the submit button on hover */
+#submit:hover {
+    background-color: rgb(123, 250, 85);
+}
+
+/* Style the close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Change the color of the close button on hover and focus */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
