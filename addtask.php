@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $insert_query->close();
 
     // Fetch the inserted task from the database
-    $select_query = $conn->prepare("SELECT * FROM tbltask WHERE id = ?");
+    $select_query = $conn->prepare("SELECT * FROM tbltask WHERE taskId = ?");
     $select_query->bind_param("i", $inserted_id);
     $select_query->execute();
     $result = $select_query->get_result();
