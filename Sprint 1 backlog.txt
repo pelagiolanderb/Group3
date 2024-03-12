@@ -1,0 +1,11 @@
+Functionalities to be developed:
+User story 1 and 2.
+
+1. As a user, I want to create a task.
+ - Users should be able to create new task records that will accept task name and task deadline input that will be saved to a database. 
+ - All created tasks wil have a task id, date created, and task status which will be set to 'Not Started' by default.
+ - The input form should not be submitted when input fields are incomplete, the task deadline date value should have a default value of the current day and should not accept any dates before the current date.
+ - The insert query must use prepared statements to prevent sql injection attacks.
+2. As a user, I want to view my created tasks so I can keep track of my activities
+- User tasks should be displayed in a table at the home page with all corresponding details.
+- The list should be dynamically updated when a new record is inserted.
